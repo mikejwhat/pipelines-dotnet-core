@@ -8,7 +8,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
+- powershell: |
+              Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
               $url = "$($env:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI)$env:SYSTEM_TEAMPROJECTID/_apis/build-release/definitions/$($env:SYSTEM_DEFINITIONID)?api-version=2.0"
               Write-Host "url is $url"
               $pipeline = Invoke-RestMethod -Uri $url -Headers @{
