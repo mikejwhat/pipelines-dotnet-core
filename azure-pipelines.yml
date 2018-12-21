@@ -20,3 +20,7 @@ steps:
     testResultsFiles: '**/*.trx'
 
 - task: PublishBuildArtifacts@1
+
+- powershell: Write-Host "This is a script that could use $env:SYSTEM_ACCESSTOKEN"
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
